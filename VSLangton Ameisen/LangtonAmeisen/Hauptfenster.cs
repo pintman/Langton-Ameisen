@@ -45,8 +45,7 @@ namespace LangtonAmeisen
 
         private void pbFeld_Paint(object sender, PaintEventArgs e)
         {
-            Bitmap ameisenBild = ameise.HoleBild();
-            e.Graphics.DrawImage(ameisenBild, 0, 0);
+            ameise.MaleDich(e.Graphics);
         }
 
         private void btnStop_Click(object sender, EventArgs e)
