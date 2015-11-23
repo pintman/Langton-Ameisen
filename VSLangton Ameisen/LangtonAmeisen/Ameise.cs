@@ -14,7 +14,7 @@ namespace LangtonAmeisen
         /// <summary>
         ///       oben
         ///         1 
-        /// rechts 4 2 links
+        /// links  4 2 rechts
         ///         3 
         ///       unten
         /// </summary>
@@ -32,7 +32,7 @@ namespace LangtonAmeisen
             this.position = new Point(breite / 2, hoehe / 2);
             this.richtung = 1;
             this.schritte = 0;
-            this.kaestchenbreite = 5;
+            this.kaestchenbreite = 3;
 
             // Bitmap erzeugen und weiß färben
             this.bitmap = new Bitmap(breite, hoehe);
@@ -78,11 +78,6 @@ namespace LangtonAmeisen
             }
         }
 
-        public Bitmap HoleBild()
-        {
-            return this.bitmap;
-        }
-
         private Color HoleFarbeUnterAmeise()
         {
             return this.bitmap.GetPixel(position.X, position.Y);
@@ -107,7 +102,6 @@ namespace LangtonAmeisen
             g.FillRectangle(pinsel, position.X, position.Y, kaestchenbreite, kaestchenbreite);
         }
 
-
         public int HoleSchritte()
         {
             return this.schritte;
@@ -124,5 +118,10 @@ namespace LangtonAmeisen
         }
 
         abstract public void Bewegen();
+
+        public void MaleDich(Graphics graphics)
+        {
+            graphics.DrawImage(this.bitmap, 0, 0);
+        }
     }
 }
